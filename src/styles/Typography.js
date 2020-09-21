@@ -21,6 +21,8 @@ const Typography = createGlobalStyle`
   a {
     color: var(--black);
     text-decoration-color: var(--red);
+    /* Fix Chrome font issue.. */
+    text-decoration-skip-ink: none;
   }
   mark, .mark {
     background: var(--yellow);
