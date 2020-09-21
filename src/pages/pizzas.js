@@ -2,12 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import PizzaList from '../components/PizzaList';
+import ToppingsFilter from '../components/ToppingsFilter';
 
 export default function PizzasPage({ data }) {
   // No need to add loading states since everything is pre-populated before page loads
   const pizzas = data.pizzas.nodes;
   return (
     <>
+      <ToppingsFilter />
       <PizzaList pizzas={pizzas} />
     </>
   );
