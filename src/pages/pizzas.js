@@ -20,8 +20,14 @@ export default function PizzasPage({ data }) {
 //
 // Gatsby recongizes the exported query and passes it down as props
 export const pageQuery = graphql`
-  query PizzaQuery {
-    pizzas: allSanityPizza {
+  # Another option is to use Regex (gatsby-node.js must be updated as well)
+  # query PizzaQuery($toppingRegex: String) {
+  query PizzaQuery($topping: [String]) {
+    pizzas: allSanityPizza(
+      # Regex route:
+      # filter: { toppings: { elemMatch: { name: { regex: $toppingRegex } } } }
+      filter: { toppings: { elemMatch: { name: { in: $topping } } } }
+    ) {
       nodes {
         id
         name
