@@ -47,6 +47,7 @@ export default function Pagination({
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
+          key={i}
           // Add a classname to have links that don't exactly match (re: backslashes) still trigger the style
           className={currentPage === 1 && i === 0 ? 'current' : ''}
           to={`${base}/${i > 0 ? i + 1 : ''}`}
