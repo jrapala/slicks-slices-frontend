@@ -7,8 +7,10 @@ export default {
     title: `Slick's Slices`,
     siteUrl: 'https://slicks-slices.netlify.app/',
     description: 'The best pizza place in Chicago!',
+    twitter: '@slicksSlices',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-sanity',
