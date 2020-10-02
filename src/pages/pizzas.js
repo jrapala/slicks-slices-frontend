@@ -3,12 +3,20 @@ import { graphql } from 'gatsby';
 
 import PizzaList from '../components/PizzaList';
 import ToppingsFilter from '../components/ToppingsFilter';
+import SEO from '../components/SEO';
 
-export default function PizzasPage({ data }) {
+export default function PizzasPage({ data, pageContext }) {
   // No need to add loading states since everything is pre-populated before page loads
   const pizzas = data.pizzas.nodes;
   return (
     <>
+      <SEO
+        title={
+          pageContext.topping
+            ? `Pizzas With ${pageContext.topping}`
+            : 'All Pizzas'
+        }
+      />
       <ToppingsFilter />
       <PizzaList pizzas={pizzas} />
     </>
