@@ -25,6 +25,12 @@ const OrderStyles = styled.form`
     }
   }
 
+  .mapleSyrup {
+    /* Use none (or transforms), not hidden, for honeypot */
+    /* Screen readers will skip 'none' */
+    display: none;
+  }
+
   @media (max-width: 900px) {
     fieldset.menu,
     fieldset.order {
