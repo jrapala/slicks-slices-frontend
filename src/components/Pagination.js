@@ -26,6 +26,13 @@ const PaginationStyles = styled.div`
       color: var(--grey);
     }
   }
+
+  @media (max-width: 800px) {
+    .word {
+      display: none;
+    }
+    font-size: 1.4rem;
+  }
 `;
 
 export default function Pagination({
@@ -42,12 +49,16 @@ export default function Pagination({
 
   return (
     <PaginationStyles>
-      <Link disabled={!hasPrevPage} to={`${base}/${prevPage}`}>
-        ← Prev
+      <Link
+        disabled={!hasPrevPage}
+        to={`${base}/${prevPage}`}
+        title="Previous Page"
+      >
+        ← <span className="word">Prev</span>
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
-          key={i}
+          key={`page-${i}`}
           // Add a classname to have links that don't exactly match (re: backslashes) still trigger the style
           className={currentPage === 1 && i === 0 ? 'current' : ''}
           to={`${base}/${i > 0 ? i + 1 : ''}`}
@@ -55,8 +66,12 @@ export default function Pagination({
           {i + 1}
         </Link>
       ))}
-      <Link disabled={!hasNextPage} to={`${base}/${nextPage}`}>
-        Next →
+      <Link
+        disabled={!hasNextPage}
+        to={`${base}/${nextPage}`}
+        title="Next Page"
+      >
+        <span className="word">Next</span> →
       </Link>
     </PaginationStyles>
   );
