@@ -26,6 +26,7 @@ The backend repo can be found [here](https://github.com/jrapala/slicks-slices-ba
 
 -   [Gatsby](https://www.gatsbyjs.com/)
 -   [Sanity](https://www.sanity.io/)
+-   [GraphQL](https://graphql.org/)
 -   [Netlify](https://www.netlify.com/)
 -   Serverless functions hosted on [Netlify](https://www.netlify.com/)
 -   [Styled Components](https://styled-components.com/)
